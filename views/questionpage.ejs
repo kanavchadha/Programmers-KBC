@@ -1,0 +1,123 @@
+<%- include("partials/header")%>
+<style>
+	body{
+		background-color: #6c1b73;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg fill-opacity='0.91'%3E%3Ccircle fill='%236c1b73' cx='50' cy='0' r='50'/%3E%3Cg fill='%23721b7b' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23791b82' cx='50' cy='100' r='50'/%3E%3Cg fill='%237f1b8a' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23851a92' cx='50' cy='200' r='50'/%3E%3Cg fill='%238c1a9b' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%239219a3' cx='50' cy='300' r='50'/%3E%3Cg fill='%239818ab' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%239f17b4' cx='50' cy='400' r='50'/%3E%3Cg fill='%23a516bd' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%23ab15c6' cx='50' cy='500' r='50'/%3E%3Cg fill='%23b113cf' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%23b712d8' cx='50' cy='600' r='50'/%3E%3Cg fill='%23bd10e1' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23c30eeb' cx='50' cy='700' r='50'/%3E%3Cg fill='%23c80ef3' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%23ca13f6' cx='50' cy='800' r='50'/%3E%3Cg fill='%23cb18f8' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23cc1dfb' cx='50' cy='900' r='50'/%3E%3Cg fill='%23ce22fd' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23cf28ff' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: contain;
+	}
+	
+	.contentBlock img{
+		border:2px solid black;
+		border-radius:50%;
+	}
+	
+</style>
+
+<div>
+	
+	<div id="container">
+		<div class="drawer"> <span></span> <span></span> <span></span> </div>
+		<div class="left">
+			<span class="timer">00:00</span>
+			<div class="progress">
+				<div><span class="headingText">Question:</span> <span id="progressText">0/16</span>	                     </div>
+				<img class="logo" src="https://images-na.ssl-images-amazon.com/images/I/71uVtJujevL.png">
+				<div><span class="headingText">Amount:</span> <span id="score">0</span></div>
+			</div>
+		<h2 class="lifelines">Life Lines</h2>
+		<div class="contentBlock">
+			<input type="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcStD_xPoQgHvFK2KpLCtYwZqb7NAPsUHF0VBA&usqp=CAU" class="quit">
+			
+			<input type="image" class="lifeline" data-ll="friend" 						                        src="https://cdn4.iconfinder.com/data/icons/social-media-2097/94/phone-512.png">
+			
+			<input type="image" class="lifeline" data-ll="skip" 						                        src="https://cdn0.iconfinder.com/data/icons/primitive-round-buttons-overcolor/512/flip_horizontal-512.png">
+
+			<input type="image" class="lifeline" data-ll="expert" 						                        src="https://thumbs.dreamstime.com/z/d-man-headphone-laptop-expert-advice-illustration-computer-word-text-human-person-character-white-people-147213462.jpg">
+
+			<input type="image" class="lifeline" data-ll="5050" 						                        src="https://vistapointe.net/images/50-50-wallpaper-10.jpg">
+
+		</div>
+	<div class="quest">
+		<h2 id="question">This is a question </h2>
+		<div id="quesimage"></div>
+		<div class="buttons">
+			<div class="pulse">
+				<span class="choice">a</span>
+				<button class="choice-text" data-number='1'>option 1</button>
+			</div>
+			<div class="pulse">
+				<span class="choice">b</span>
+				<button class="choice-text" data-number='2'>option 2</button>
+			</div>
+			<div class="pulse">
+				<span class="choice">c</span>
+				<button class="choice-text" data-number='3'>option 3</button>
+			</div>
+			<div class="pulse">
+				<span class="choice">d</span>
+				<button class="choice-text" data-number='4'>option 4</button>
+			</div>
+		</div>
+	</div>
+	
+	</div>
+	
+	<div class="body-blackout"></div>
+	<div class="popup-modal shadow" data-popup-modal="two">
+		<h1 style="text-align: center;"> Expert's Awnser is: </h1>
+	</div>
+	<div class="popup-modal shadow" data-popup-modal="three">
+		<h1 style="text-align: center;"> Phone a Friend... </h1>
+	</div>
+		
+	<div class="vl">
+		<h1>Levels</h1>
+		<ol reversed>
+			<li> 7 Crores</li>
+			<li> 1 Crore</li>
+			<li> 50,00,000</li>
+			<li> 25,00,000</li>
+			<li> 12,50,000</li>
+			<li> 6,40,000</li>
+			<li> 3,20,000</li>
+			<li> 1,60,000</li>
+			<li> 80,000</li>
+			<li> 40,000</li>
+			<li> 20,000</li>
+			<li> 10,000</li>
+			<li> 5,000</li>
+			<li> 3,000</li>
+			<li> 2,000</li>
+			<li> 1,000</li>
+		</ol>
+	</div>
+		
+	</div>
+	<audio id="corrAns" src="/media/correctaudio.mp3">
+	</audio>
+	<audio id="lif5050" src="/media/50-50.mp3">
+	</audio>
+	<audio id="lifexpert" src="/media/expert.mp3">
+	</audio>
+	<audio id="lifphone" src="/media/phone.mp3">
+	</audio>
+	<audio id="lifflip" src="/media/flip.mp3">
+	</audio>
+	<audio id="7croreaudio" src="/media/7crore.mp3">
+	</audio>
+	<audio id="1croreaudio" src="/media/1crore.mp3">
+	</audio>
+<script>
+	document.querySelector('.drawer').addEventListener('click',function(e){
+		document.querySelector('.vl').classList.toggle('showlevels');
+		document.querySelector('.drawer').classList.toggle('opened');
+	})
+	// window.onbeforeunload = function() {
+	// return "Do you really want to leave Quiz ?";
+	// };
+</script>
+<script src="/JS/quiz.js"></script>
+	
+</div>	
+<%- include("partials/footer")%>

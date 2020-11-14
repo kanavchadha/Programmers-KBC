@@ -1,0 +1,95 @@
+<%- include("partials/header")%>
+
+<style>
+	body{
+		margin: 0;
+		padding: 0;
+		background-color: #4a1e73;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%233f1a62' fill-opacity='0.91'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.91'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
+	}
+		
+	}
+</style>
+
+<div>
+	
+	<div class="play">
+		<h1>
+			Welcome To Kaun Banega Crorepati
+		</h1>
+		<div class="buts">
+			<a href="/rules" class="btn enroll btn-lg"><strong>Rules </strong></a>
+			<div class="logo">
+				<img src="https://images-na.ssl-images-amazon.com/images/I/71uVtJujevL.png">
+			</div>
+			<a href="/play" class="btn enroll start btn-lg"><strong>play </strong></a>
+		</div>
+		<h2>
+			Note:- Once you click on Play Button your timer will start.
+		</h2>
+		<button onclick="showModalForm()" class="btn enroll">Change Credentials</button>
+	</div>
+	
+	<div class="body-blackout"></div>
+	
+	<div class="popup-modal shadow" data-popup-modal="one">
+		<h1 style="text-align: center;"> Enter Your Name: </h1>
+		<form class="form" onsubmit="return Register(event)">
+			<div class="inputBox">
+				<input type="text" id="name" name="name" required>
+				<span>Enter Your Good Name</span>	
+			</div>
+			<div class="inputBox">
+				<input type="tel" pattern="[0-9]{12}" id="phnno" value="91" name="phnno" required>
+				<span>Enter Your Friend's PhoneNumber</span>	
+			</div>
+			<button type="submit"> Submit </button>
+		</form>
+	</div>
+
+</div>
+	
+<audio id="entrymusic" src="/media/entranceaudio.mp3" loop>
+</audio>
+
+<script defer>
+	const prevname = localStorage.getItem('Name');	
+	const prevfriend = localStorage.getItem('FriendNo');	
+	if(!prevname || !prevfriend){
+		showModalForm();
+		document.querySelector('a.start').setAttribute('href','/');
+	}else{
+		document.querySelector('a.start').setAttribute('href','/play');
+	}
+	
+	function showModalForm(){
+		const popupModal = document.querySelector('[data-popup-modal="one"]')
+		const bodyBlackout = document.querySelector('.body-blackout');
+		popupModal.classList.add('is--visible')
+		bodyBlackout.classList.add('is-blacked-out')
+
+		bodyBlackout.addEventListener('click', () => {
+		  popupModal.classList.remove('is--visible')
+		  bodyBlackout.classList.remove('is-blacked-out')
+		})
+	}
+	function Register(event){
+		localStorage.setItem('Name',document.querySelector('input#name').value);
+		document.querySelector('input#name').value = '';
+		localStorage.setItem('FriendNo',document.querySelector('input#phnno').value);
+		document.querySelector('input#phnno').value = '';
+		alert("You are Registered Successfully.");
+	}
+	
+	// window.onload = function() {
+	// document.getElementById('entrymusic').play();
+	// }
+</script>
+
+<script type="text/javascript" defer>
+	navigator.mediaDevices.enumerateDevices().then(gotdevices => {
+	    document.getElementById('entrymusic').play();
+	})
+</script>
+	
+<%- include("partials/footer")%>

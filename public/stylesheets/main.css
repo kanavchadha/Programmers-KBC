@@ -1,0 +1,268 @@
+/* Life lines */
+body{
+	padding: 0;
+	margin: 0;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+button:focus{
+	outline: none;	
+}
+#container{
+	display: flex;
+	min-height: 100vh;
+}
+header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 12px 20px;
+	display: flex;
+	background-color: #3a0d6b;
+	color: white;
+	box-sizing: border-box;
+	box-shadow: 0 5px 8px rgba(0,0,0,0.5);
+	justify-content: space-between;
+}
+.drawer {
+	visibility: hidden;
+}
+
+img.logo {
+	object-fit: contain;
+	height: 150px;
+}
+.left{
+	flex: 0.8;
+	display: flex;
+	flex-direction: column;
+}
+.progress{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.headingText, #progressText, #score{
+	color: white;
+	font-size: 1.36rem;
+	text-shadow: 0 2px 3px rgba(0,0,0,0.5);
+	padding-bottom: 1px;
+	border-bottom: 2px solid white;
+}
+
+@media(max-width: 428px){
+	.progress span.headingText{
+		display: none;
+	}	
+}
+
+.timer{
+	position: fixed;
+	right: 5px;
+	top: 5px;
+	color: white;
+	border: 2px solid cyan;
+	border-radius: 20px;
+	box-shadow: 0 6px 10px rgba(0,0,0,0.5);
+	padding: 3px 8px;
+	text-shadow: 0 2px 3px rgba(0,0,0,0.5);
+	font-size: 1.4em;
+}
+
+.vl {
+	right: 0;
+	position: fixed;
+ 	flex: 0.2;
+	height: 100%;
+	padding: 5px 50px;
+    border-left: 6px solid white;
+  	text-align: center;
+}
+.vl h1{
+	text-align: center;
+	color: red;
+	text-shadow: 0 2px 3px rgba(0,0,0,0.5);
+	padding-left: 20px;
+	text-decoration: underline;
+}
+.vl ol {
+	color: yellow;
+	font-size: 1.6rem;
+}
+
+h2.lifelines{
+	font-size: 2em;
+	color: goldenrod;
+	text-align: center;
+	margin-block-start: 0;
+    margin-block-end: 0;
+	margin: 20px auto;
+}
+.quest h2{
+	padding-left: 10px;
+	color: white;
+	text-shadow: 0 2px 3px rgba(0,0,0,0.5);
+}
+.contentBlock{
+	display: flex;
+	justify-content: space-around;
+	margin: 10px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.contentBlock input{
+	border: none;
+	border-radius: 50%;
+	background: transparent;
+	outline: none;
+	cursor: pointer;
+	object-fit: contain;
+	max-height: 60px;
+	transition: 0.36s;
+}
+.contentBlock input:enabled:hover{
+	transform: scale(1.2) rotate(360deg);
+}
+.contentBlock input:disabled{
+	transform: scale3d(1,0.32,1);
+	cursor: not-allowed;
+}
+
+.quest{
+	margin: 10px 15px;
+}
+
+.quest .buttons{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	color: yellow;
+}
+
+.pulse {
+  border: 2px solid goldenrod;
+  margin: 0.5em;
+  cursor: pointer;
+  font-weight: 550;
+  margin: 15px 30px;
+  border-radius: 30px;
+  background: transparent;
+  padding: 2px 1em;
+  color: #e6e5e3;
+  --color: #d9ab2b;
+  --hover: #d9ab2b;
+  transition: 0.3s;
+}
+.pulse:hover,
+.pulse:focus {
+	  animation: pulse 1s;
+	  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+}
+.choice{
+	font-size: 1.05em;
+	border-right: 2px solid whitesmoke;
+	border-radius: 10px;
+	padding: 2px 0;
+	padding-left: 2px;
+	padding-right: 5px;
+}
+.choice-text{
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	padding: 10px 15px;
+	font-size: 1.06em;
+	color: white;
+}
+#quesimage{
+	max-height: 350px;
+	height: auto;
+	box-sizing: border-box;
+	max-width: 100%;
+	margin: 10px auto;
+	overflow: auto;
+}
+#quesimage img{
+	object-fit: contain;
+	max-height: 350px;
+	max-width: 100%;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+
+@media(min-width: 980px){
+	h2.lifelines{
+		font-size: 2.5em;
+	}
+	.quest h2{
+		font-size: 2.2rem;
+	}
+}
+
+@media(max-width: 980px){
+	.drawer{
+		visibility: visible;
+		position: fixed;
+		top: 10px;
+		left: 6px;
+		color: white;
+		font-size: 2em;
+		cursor: pointer;
+	}
+	.drawer span{
+		width: 32px;
+		display: block;
+		margin: 5px;
+		height: 4px;
+		border-radius: 2px;
+		background-color: white;
+		text-shadow: 0 3px 5px rgba(0,0,0,0.5);
+	}
+	.left{
+		flex: 1;
+	}
+
+	.vl {
+		flex: 0;
+		position: fixed;
+		right: -100%;
+		background: #961e8e;
+		padding: 5px 25px;
+		text-align: center;
+		width: 12rem;
+		height: 100vh;
+		overflow-y: auto; 
+		transition: 0.3s;
+	}
+	.opened span{
+		transition: 0.3s;
+	}
+	.opened span:nth-of-type(1){
+		transform: rotate(45deg) translateY(12px);
+	}
+	.opened span:nth-of-type(2){
+		transform: translateX(-55px);
+		visibility: hidden;
+	}
+	.opened span:nth-of-type(3){
+		transform: rotate(-46deg) translateY(-12px);
+	}
+	
+	.showlevels{
+		right: 0;
+		box-shadow: -18px 5px 16px 12px rgba(0,0,0,0.3);
+	}
+}
+/*life lines end */
+
+.correct{
+	transform: scale(1.1);
+	box-shadow: 0 8px 10px rgba(0,0,0,0.5);
+	background-color: greenyellow;
+}
+.incorrect{
+	background-color: #e6122b;
+}

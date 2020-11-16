@@ -12,7 +12,10 @@ background-attachment: fixed;
 	<img src="https://i.postimg.cc/8k4kSVRc/congratulations.png" class="tag">
 	<div class="lastgame"> You win this much Amount.</div>
 	<img src="https://www.pinclipart.com/picdir/big/59-591585_how-to-win-scratch-offs-portable-network-graphics.png" height="386px">
-</div>	
+</div>
+
+<audio id="chequeaudio" src="/media/cheque.mp3">
+</audio>
 
 <script>
 	const prevname = localStorage.getItem('Name');
@@ -24,6 +27,7 @@ document.querySelector('.lastgame').removeChild(document.querySelector('.lastgam
 		const p = document.createElement('p');
 		p.innerText = `Congratulations!! ${prevname}, You Win ${prevscore} Rs !!!`
 		document.querySelector('.lastgame').appendChild(p);
+		document.getElementById('chequeaudio').play();
 	}
 </script>
 

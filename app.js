@@ -127,6 +127,7 @@ app.post('/sendMessage',function(req,res){
 	
 })
 
+
 app.get("*",function(req,res){
 	res.render("404");
 });
